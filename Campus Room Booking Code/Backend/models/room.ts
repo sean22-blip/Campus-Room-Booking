@@ -1,17 +1,27 @@
 import sequelize from "../config/dbConfig";
-import { DataType, DataTypes } from "sequelize";
+import { Model, DataTypes } from "sequelize";
+export class Room extends Model{
+    getAllRoom(){
 
-export const room = sequelize.define('Room', {
-    floor_number: {
+    }
+    getAvailableRoom(){
+
+    }
+    getBookedRoom(){
+
+    }
+}
+Room.init({
+    floor_number:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    booking_id: {
+    booking_id:{
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: false
     }
 }, {
+    sequelize, modelName: 'Room',
     underscored: true,
-    timestamps:false
-}
-)
+    timestamps: false
+})
