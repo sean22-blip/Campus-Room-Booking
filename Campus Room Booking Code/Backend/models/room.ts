@@ -19,6 +19,10 @@ Room.init({
     booking_id:{
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    student_id:{
+        type:DataTypes.INTEGER,
+        allowNull:false
     }
 }, {
     sequelize, modelName: 'Room',

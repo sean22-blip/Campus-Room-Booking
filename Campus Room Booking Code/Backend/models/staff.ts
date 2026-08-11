@@ -14,6 +14,10 @@ Staff.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    student_id: {
+        type: DataTypes.INTEGER,
+        allowNull:false
+    },
     booking_id:{
         type: DataTypes.INTEGER,
         allowNull: true
