@@ -1,19 +1,28 @@
 import sequelize from "../config/dbConfig";
-import { DataTypes, Model } from "sequelize";
+import { DataTypes, Model, CreationOptional} from "sequelize";
 export class Booking extends Model{
-    viewAllBooking(){}
-    viewBookingById(){}
+    declare id: CreationOptional<number>;
+    declare student_id: number;
+    declare staff_id: number;
+    declare status: boolean;
+   async viewAllBooking(){
+       const count = await Booking.count();
+        return `Total People who are booking: ${count}`;
+    }
+    viewBookingById(){
+        return `${this.id}`;
+    }
 }
 
 Booking.init(
     {
         student_id:{
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
         },
         staff_id:{
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
         },
         status:{
             type: DataTypes.BOOLEAN,
