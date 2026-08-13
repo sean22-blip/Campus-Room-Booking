@@ -1,5 +1,4 @@
 import {Booking} from '../models/booking'
-import sequelize from '../config/dbConfig'
 import { Request, Response } from 'express';
 export const getInfo = async(req: Request, res: Response) => {
     const id = req.params.id as string;
@@ -14,6 +13,7 @@ export const getInfo = async(req: Request, res: Response) => {
             console.log(`Error: this id cannot be find! `);
             return res.status(404).json(`cannot find booking with this ID!`)
         }
+       return res.status(200).json(findId)
     } catch (error) {
         console.log(`Error: ${error}`, `there is an error inside the bookingController Backend!`)
         return res.status(500).json({error: error})
