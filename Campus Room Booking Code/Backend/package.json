@@ -1,4 +1,15 @@
 {
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "nodemonConfig": {
+    "exec": "tsx server.ts",
+    "watch": [
+      "./"
+    ],
+    "ext": "ts,json"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
@@ -12,7 +23,7 @@
     "@types/node": "^26.2.0",
     "@types/sequelize": "^4.28.20",
     "nodemon": "^3.1.14",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.23.12",
     "typescript": "^5.9.3"
   }
 }
