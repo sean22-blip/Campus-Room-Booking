@@ -5,9 +5,9 @@ export class Booking extends Model{
     declare student_id: number;
     declare staff_id: number;
     declare status: boolean;
-   async viewAllBooking(){
+   async viewAllBookedRoom(){
        const count = await Booking.count();
-        return `Total People who are booking: ${count}`;
+        return `Room booked: ${count}`;
     }
     viewBookingById(){
         return `${this.id}`;

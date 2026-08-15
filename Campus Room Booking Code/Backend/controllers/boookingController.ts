@@ -23,3 +23,20 @@ export const getInfo = async(req: Request, res: Response) => {
         return res.status(500).json({error: error})
     }
 }
+export const createBooking = async (req:Request, res: Response) => {
+      const {student_id, booking_id}  = req.body ;
+      if(!student_id){
+        return res.status(400).json(`All field must be provided!`)
+      } 
+      const numStudentId = parseInt(student_id)
+      try {
+        const findStudent = Booking.findByPk(numStudentId);
+        if(!findStudent){
+            return res.status(404).json(`cannot find the student with this ID! `);
+        }
+
+      } catch (error) {
+        console.log(`Error: ${error}`);
+        return res.status(500).json({error: `something went wrong in the bookingController`})
+      }
+}
