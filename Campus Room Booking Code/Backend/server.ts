@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 import cors from 'cors'
 import sequelize from './config/dbConfig';
-import './models'
+import './models/association'
 import { staffRouter } from './route/staffRoute';
 import { serveSwagger, setupSwagger } from './config/swagger';
 const app = express();
