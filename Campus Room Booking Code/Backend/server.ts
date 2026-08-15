@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 import cors from 'cors'
 import sequelize from './config/dbConfig';
-import './models/association'
+import './models'
 import { staffRouter } from './route/staffRoute';
 import { serveSwagger, setupSwagger } from './config/swagger';
 const app = express();
@@ -19,8 +19,8 @@ const startServer = async () => {
         await sequelize.authenticate();
         console.log("successfully connected to database")
         app.listen(port, () => {
-            console.log(`server is running at port: ${port}`),
-            console.log('Swagger docs at http://localhost:3000/api-docs');
+            console.log(`server is running at port: http://localhost:${port}`),
+            console.log(`Swagger docs at http://localhost:${port}/api-docs`);
         })
     } catch (error) {
         console.log({ error: 'error in the server backend' }, error)

@@ -1,5 +1,9 @@
 import {Booking} from '../models/booking'
-import { Request, Response } from 'express';
+import { Request, Response } from 'express'
+/**
+ * @openapi
+ * 
+ *  */;
 export const getInfo = async(req: Request, res: Response) => {
     const id = req.params.id as string;
     if(!id){

@@ -1,5 +1,25 @@
 import { Request, Response } from "express";
 import { Staff } from "../models/staff";
+/**
+ * @openapi
+ * /api/staff/profile/{id}:
+ *   get:
+ *     summary: Get a staff member's profile by ID
+ *     tags: [Staff]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Staff profile found
+ *       400:
+ *         description: Invalid ID
+ *       404:
+ *         description: Staff not found
+ */
 export const viewProfile = async (req: Request, res: Response) => {
     const staffId = req.params.id as string;
     const numStaffId = parseInt(staffId, 10);
