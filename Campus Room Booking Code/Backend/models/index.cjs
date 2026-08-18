@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
-const basename = path.basename(__filename);
+const basename = path.basename(__filename); //here we get the current path to our working file
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.cjs')[env];
 const db = {};
 
 let sequelize;
@@ -21,9 +21,9 @@ fs
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
-      file !== basename &&
+      file !== basename &&//excluding the basename which is the current file 
       file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
+      file.indexOf('.test.js') === -1//exclude test file why do we need to exclude the test file 
     );
   })
   .forEach(file => {
